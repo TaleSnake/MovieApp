@@ -21,7 +21,8 @@ export default class About extends Component {
 			</p>
 			<p><a href="${github}">Github</a></p>
 			<p><a href="${blog}">Blog</a></p>
-			
 		`
+		
+		
 	}
 }
