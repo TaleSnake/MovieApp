@@ -1,4 +1,5 @@
 import {Component} from '../core/core';
+import aboutStore from '../store/about';
 
 export default class GNB extends Component {
   constructor() {
@@ -18,6 +19,8 @@ export default class GNB extends Component {
   }
   
   render() {
+    const { photo } = aboutStore.state
+    
     this.el.classList.add('gnb')
     this.el.innerHTML = `
       <div class="gnb-container">
@@ -32,7 +35,7 @@ export default class GNB extends Component {
          </ul>
         </nav>
         <a href="#/about" class="user">
-         <img src="https://heropy.blog/css/images/logo.png" alt="User">
+         <img src="${photo}" alt="User">
         </a>
       </div>
     `
