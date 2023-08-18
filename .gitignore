@@ -2,7 +2,7 @@
 .idea
 .vscode
 
-.evn
+.env
 .vercel
 .parcel-cache
 node_module

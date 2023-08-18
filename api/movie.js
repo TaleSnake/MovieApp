@@ -7,10 +7,10 @@
 // nodejs에 'node-fetch@2' 패키지를 설치하여양 동작 할수있다.
 import fetch from 'node-fetch';
 
-const { KEY } = process.env
+const { APIKEY } = process.env
 
 export default async function handler(request, response) {
-  const DOMAIN = `https://omdbapi.com/?apikey=${KEY}`
+  const DOMAIN = `https://omdbapi.com/?apikey=${APIKEY}`
   
   const { title, page, id } = JSON.parse(request.body)
   const url = id
