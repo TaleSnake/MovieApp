@@ -12,9 +12,6 @@ const store = new Store({
 })
 export default store
 
-const KEY = '7035c60c'
-const URL = `https://omdbapi.com/?apikey=${KEY}`
-
 export const searchMovies = async page => {
 	store.state.loading = true
 	store.state.page = page
@@ -26,7 +23,15 @@ export const searchMovies = async page => {
 	}
 	
 	try {
-		const res = await fetch(URL+`&s=${store.state.searchText}&page=${page}`)
+		// const res = await fetch(URL+`&s=${store.state.searchText}&page=${page}`)
+		const res = await fetch(`/api/movie`, {
+			method: 'POST',
+			body: JSON.stringify({  // 객체로 보내면 undifiend 나옴. json으로 만들어 보내야함
+				title: store.state.searchText,
+				page: page
+			})
+		})
+		
 		const json = await res.json()
 		console.log(json)
 		const { Search, totalResults, Response, Error } = json
@@ -52,7 +57,12 @@ export const searchMovies = async page => {
 
 export const getMovieInfo = async id => {
 	try {
-		const res = await fetch(URL+`&i=${id}&plot=full`)
+		const res = await fetch(`/api/movie`, {
+			method: 'POST',
+			body: JSON.stringify({
+				id: id
+			})
+		})
 		const json = await res.json()
 		store.state.movie = json
 		console.log(json)

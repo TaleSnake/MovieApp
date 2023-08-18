@@ -1,3 +1,9 @@
+.DS_Store
 .idea
+.vscode
+
+.evn
+.vercel
+.parcel-cache
 node_module
 dist
