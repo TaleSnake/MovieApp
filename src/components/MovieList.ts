@@ -2,7 +2,7 @@ import { Component } from '../core/core'
 import movieStore from '../store/movie'
 import MovieItem from './MovieItem'
 
-export default class MovieList extends Component{
+export default class MovieList extends Component {
 	constructor () {
 		super()
 		movieStore.subscribe('movies', () => {
@@ -33,7 +33,7 @@ export default class MovieList extends Component{
 		
 		const loaderEl = this.el.querySelector('.the-loader')
 		movieStore.state.loading
-			 ? loaderEl.classList.remove('hide')
-			 : loaderEl.classList.add('hide')
+			 ? loaderEl?.classList.remove('hide')
+			 : loaderEl?.classList.add('hide')
 	}
 }

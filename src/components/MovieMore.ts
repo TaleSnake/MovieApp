@@ -1,7 +1,7 @@
 import { Component } from '../core/core'
 import movieStore, { searchMovies } from '../store/movie'
 
-export default class MovieMore extends Component {
+export default class MovieMore extends Component<Object, Object> {
 	constructor () {
 		super({
 			tagName: 'button'

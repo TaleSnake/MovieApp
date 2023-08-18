@@ -9,11 +9,11 @@ export default class Footer extends Component {
   }
   render() {
     const thisYear = new Date().getFullYear()
-    const { github, repogitory } = aboutStore.state
+    const { github, repository } = aboutStore.state
     this.el.innerHTML = `
         <div class="footer-container">
             <div><a href="">Github Repository</a></div>
-            <div><a href="${repogitory}">${thisYear} Tale.Snake</a></div>
+            <div><a href="${repository}">${thisYear} Tale.Snake</a></div>
         </div>
     `
   }

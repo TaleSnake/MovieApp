@@ -1,10 +1,15 @@
-import { Component } from '../core/core'
+import { GenericComponent } from '../core/core'
+import { Search } from "../store/movie";
 
-export default class MovieItem extends Component {
-	constructor (props) {
+interface Props {
+	[key:string]: unknown,
+	movie: Search
+}
+export default class MovieItem extends GenericComponent<Object, Props> {
+	constructor (public props: Props) {
 		super({
-			props,
-			tagName: 'a'
+			tagName :'a',
+			props
 		})
 	}
 

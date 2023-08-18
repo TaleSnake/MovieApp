@@ -2,6 +2,7 @@
   "name": "movieapp",
   "version": "1.0.0",
   "description": "",
+  "type": "module",
   "scripts": {
     "dev": "parcel ./index.html",
     "build": "parcel build ./index.html",
@@ -15,6 +16,8 @@
     "node-fetch": "^2.6.12"
   },
   "devDependencies": {
+    "@types/lodash": "^4.14.197",
+    "@types/node-fetch": "^2.6.4",
     "dotenv": "^16.3.1",
     "parcel": "^2.9.3",
     "vercel": "^31.4.0"

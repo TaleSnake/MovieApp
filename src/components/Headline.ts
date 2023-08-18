@@ -1,9 +1,6 @@
 import { Component } from '../core/core'
 
-export default class Headline extends Component {
-	constructor (props) {
-		super(props)
-	}
+export default class Headline extends Component<Object, Object> {
 	render () {
 		this.el.classList.add('headline')
 		this.el.innerHTML = `

@@ -1,10 +1,8 @@
 import { Component } from '../core/core'
 import movieStore, { getMovieInfo } from '../store/movie'
 
+
 export default class Movie extends Component {
-	constructor () {
-		super()
-	}
 	async render () {
 		this.el.classList.add('container', "the-movie")
 		this.el.innerHTML = `
@@ -19,15 +17,14 @@ export default class Movie extends Component {
 		await getMovieInfo(history.state.id)
 		
 		const { movie } = movieStore.state
-		const { Poster } = movie
-		const bigPoster = Poster.replace(/SX\d+/g, 'SX700')
+		const bigPoster = movie.Poster.replace(/SX\d+/g, 'SX700')
 		
 		this.el.innerHTML = `
 			<div class="poster" style="background-image: url(${bigPoster})"></div>
 			<div class="specs">
 				<div class="title">${movie.Title}</div>
 				<div class="labels">
-					<span>${movie.Release}</span>&nbsp;/&nbsp;
+					<span>${movie.Released}</span>&nbsp;/&nbsp;
 					<span>${movie.Runtime}</span>&nbsp;/&nbsp;
 					<span>${movie.Country}</span>
 				</div>
@@ -55,7 +52,6 @@ export default class Movie extends Component {
 					<p>${movie.Genre}</p>
 				</div>
 			</div>
-			
 		`
 	}
 }

@@ -4,7 +4,7 @@ import Search from '../components/Search'
 import MovieList from '../components/MovieList'
 import MovieMore from '../components/MovieMore'
 
-export default class Home extends Component {
+export default class Home extends Component<Object, Object> {
 	render () {
 		const headline = new Headline().el
 		const search = new Search().el

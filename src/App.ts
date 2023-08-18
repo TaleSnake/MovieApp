@@ -2,6 +2,7 @@ import { Component } from './core/core'
 import GNB from './components/GNB';
 import Footer from './components/Footer';
 
+
 export default class App extends Component {
 	render () {
 		const gnb = new GNB()

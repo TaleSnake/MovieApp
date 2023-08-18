@@ -1,18 +1,55 @@
 import { Store } from '../core/core'
 
-const store = new Store({
+export interface Search {
+	Title: string
+	Year: string
+	imdbID: string
+	Type: string
+	Poster: string
+}
+interface Movie {
+	Response: string
+	Title: string
+	Released: string
+	Runtime: string
+	Genre: string
+	Director: string
+	Actors: string
+	Plot: string
+	Country: string
+	Poster: string
+	Ratings: {
+		Source: string
+		Value: string
+	}[]
+	imdbID: string
+	Production: string
+}
+
+interface State {
+	searchText: string,
+	page: number,
+	pageMax: number,
+	movies: Search[],
+	movie: Movie,
+	hasNext: boolean,
+	loading: boolean,
+	message: string
+}
+
+const store = new Store<State>({
 	searchText: '',
 	page: 1,
 	pageMax: 1,
 	movies: [],
-	movie: {},
+	movie: {} as Movie, // 나중에 들어갈 타입을 정해주기
 	hasNext: false,
 	loading: false,
 	message: 'Search for the movie title!'
 })
 export default store
 
-export const searchMovies = async page => {
+export const searchMovies = async (page:number) => {
 	store.state.loading = true
 	store.state.page = page
 	store.state.message = ''
@@ -23,7 +60,6 @@ export const searchMovies = async page => {
 	}
 	
 	try {
-		// const res = await fetch(URL+`&s=${store.state.searchText}&page=${page}`)
 		const res = await fetch(`/api/movie`, {
 			method: 'POST',
 			body: JSON.stringify({  // 객체로 보내면 undifiend 나옴. json으로 만들어 보내야함
@@ -55,7 +91,7 @@ export const searchMovies = async page => {
 	}
 }
 
-export const getMovieInfo = async id => {
+export const getMovieInfo = async (id:string) => {
 	try {
 		const res = await fetch(`/api/movie`, {
 			method: 'POST',
@@ -69,7 +105,6 @@ export const getMovieInfo = async id => {
 		
 	}catch (error) {
 		console.log('getMovieInfo error:', error)
-		
 	}finally {
 	
 	}
