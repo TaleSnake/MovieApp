@@ -20,9 +20,6 @@ export default class About extends Component {
 						target="_blank">${email}</a>
 			</p>
 			<p><a href="${github}">Github</a></p>
-			<p><a href="${blog}">Blog</a></p>
 		`
-		
-		
 	}
 }
