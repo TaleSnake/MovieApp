@@ -12,8 +12,8 @@ export default class Footer extends Component {
     const { github, repogitory } = aboutStore.state
     this.el.innerHTML = `
         <div class="footer-container">
-            <div><a href="${github}">Github Repository</a></div>
-            <div><a href="${repogitory}">${thisYear} HEROPY</a></div>
+            <div><a href="">Github Repository</a></div>
+            <div><a href="${repogitory}">${thisYear} Tale.Snake</a></div>
         </div>
     `
   }

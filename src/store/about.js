@@ -6,6 +6,5 @@ export default new Store({
   name: 'Tale.Snake / Choi HyeonHee',
   email: "tale.snake@gamil.com",
   blog: "https://blog.snake.com/",
-  github: "https://github.com",
-  repository: "https://github.com",
+  github: "https://github.com/TaleSnake",
 })
